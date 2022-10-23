@@ -1,10 +1,4 @@
 public class Palindrome {
-    /*
-    Логика функции main
-    Идет перебор строк заданных в консоле (аргументов)
-    Переменной s присваивается значение слова
-    Потом слово проверяется на палиндром и выводится true (если оно является) или false (если оно не является)
-     */
     public static void main(String[] args){
 
         for (int i= 0; i < args.length; i++){
@@ -13,12 +7,9 @@ public class Palindrome {
         }
     }
     /*
-    Логика метода reverseString
-    На вход подается строка orig_string
-    Создается пустая строка reverse_string
-    Цикл for перебирает эту строку с конца, и буквы заносятся в переменную reverse_string
-    Пример: o_string = "Привет", r_string = "тевирП"
-    Возращается перевернутая строка
+    Логика reverseString на вход подается строка primal_string, затем создается пустая строка reverse_string.
+    For пеербирает эту строку по индексам с конца и заносит в прееменную reverse_string, после чего возвращается
+    перевернутая строка
      */
     public static String reverseString(String primal_string){
         String reverse_string = "";
@@ -29,11 +20,9 @@ public class Palindrome {
         return reverse_string;
     }
     /*
-    Логика метода isPalindrome
-    На вход подается строка s
-    Создается переменная orig_string, она равна s
-    Создается переменная reverse_string, она равняется return метода reverseString
-    Они сравниваются, и возращается true, если равны и false, если нет
+    Логика метода isPalindrome на вход подается строка s, после чего создается переменная primal_string, которая
+    равняется s, затем создается переменная reverse_string, которая равняется тому, что вернул метод reverseString
+    Строки сравниваются, и в зависимости от того, равняются стоки или нет, нам возвращается rue or false
      */
     public static boolean isPalindrome(String s){
         String primal_string = s;
