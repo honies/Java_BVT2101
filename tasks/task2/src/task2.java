@@ -11,6 +11,9 @@ public class task2 {
         System.out.println(fibonacci(10));
         System.out.println(isValid("134 43342"));
         System.out.println(isStrangePair("mother", "rum"));
+        System.out.println(isPrefix("automation", "auto-"));
+        System.out.println(isSuffix("arachnophobia", "-phobia"));
+        System.out.println(boxSeq(1));
     }
 
     public static String repeat(String string, int num){
@@ -62,7 +65,7 @@ public class task2 {
 
     public static double getDecimalPlaces(String string){
         double value = Double.parseDouble(string);
-        return BigDecimal.valueOf(value).scale();
+        return (int)BigDecimal.valueOf(value).scale();
     }
 
     public static int fibonacci(int num){
@@ -95,6 +98,26 @@ public class task2 {
         if(firstString.charAt(0) == secondString.charAt(secondString.length()-1) && firstString.charAt(firstString.length()-1) == secondString.charAt(0)){
             return true;}
         return false;
+    }
+
+    public static boolean isPrefix(String word, String prefix){
+        if(word.startsWith(prefix.replace("-", "")) == true){
+            return true;
+        }else return false;
+    }
+
+    public static boolean isSuffix(String word, String suffix) {
+        if(word.endsWith(suffix.replace("-", "")) == true) {
+            return true;
+        }else return false;
+    }
+
+    public static int boxSeq(int step){
+        if(step == 0){
+            return 0;
+        }else if(step%2 == 0){
+            return step;
+        }else return step+2;
     }
 
 }
