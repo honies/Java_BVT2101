@@ -3,9 +3,9 @@ import java.util.Arrays;
 public class task3 {
     public static void main(String[] args) {
         System.out.println("------№1------");
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println(solutions(1, 0, -1));
+        System.out.println(solutions(1, 0, 0));
+        System.out.println(solutions(1, 0, 1));
 
 
         System.out.println("------№2------");
@@ -60,6 +60,21 @@ public class task3 {
         System.out.println(rightTriangle(3, 4, 5));
         System.out.println(rightTriangle(145, 105, 100));
         System.out.println(rightTriangle(70, 130, 110));
+    }
+
+    public static int solutions(int a, int  b, int c){
+        if(b * b - 4 * a * c > 0){
+            return 2;
+        } else if(b * b - 4 * a * c == 0) {
+            return 1;
+        }else return 0;
+    }
+
+    public static boolean checkPerfect(int n){
+        int divSum = 0;
+        for(int i = 0; i < n; i++){
+            
+        }
     }
 
     public static String longestZero(String string){
