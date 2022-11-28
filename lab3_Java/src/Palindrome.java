@@ -1,11 +1,9 @@
 public class Palindrome {
     public static void main(String[] args){
 
-        for (int i= 0; i < args.length; i++){
-            String s = args[i];
+            String s = "ara";
             System.out.print(isPalindrome(s) + " ");
         }
-    }
     /*
     Логика reverseString на вход подается строка primal_string, затем создается пустая строка reverse_string.
     For пеербирает эту строку по индексам с конца и заносит в прееменную reverse_string, после чего возвращается
@@ -24,9 +22,11 @@ public class Palindrome {
     равняется s, затем создается переменная reverse_string, которая равняется тому, что вернул метод reverseString
     Строки сравниваются, и в зависимости от того, равняются стоки или нет, нам возвращается rue or false
      */
-    public static boolean isPalindrome(String s){
+    public static String isPalindrome(String s){
         String primal_string = s;
         String reverse_string = reverseString(primal_string);
-        return primal_string.equals(reverse_string);
+        if (primal_string.equals(reverse_string)){
+            return "It's palindrome";
+        }else return "It's not palindrome";
     }
 }
