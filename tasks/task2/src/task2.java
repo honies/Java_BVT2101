@@ -95,12 +95,7 @@ public class task2 {
         for(int num: list){
             listSum += num;
         }
-        if(listSum % n == 0){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return listSum % n == 0;
     }
 
     public static int[] cumulativeSum(int[] list){
@@ -142,7 +137,7 @@ public class task2 {
     }
 
     public static boolean isValid(String string){
-        if (string.length() > 5)
+        if (string.length() != 5)
             return false;
         for(int i = 0; i < string.length(); i++){
             char letter = string.charAt(i);
@@ -156,21 +151,15 @@ public class task2 {
     public static boolean isStrangePair(String firstString, String secondString){
         if(firstString == "" && secondString == "")
             return true;
-        if(firstString.charAt(0) == secondString.charAt(secondString.length()-1) && firstString.charAt(firstString.length()-1) == secondString.charAt(0)){
-            return true;}
-        return false;
+        return firstString.charAt(0) == secondString.charAt(secondString.length() - 1) && firstString.charAt(firstString.length() - 1) == secondString.charAt(0);
     }
 
     public static boolean isPrefix(String word, String prefix){
-        if(word.startsWith(prefix.replace("-", "")) == true){
-            return true;
-        }else return false;
+        return word.startsWith(prefix.replace("-", "")) == true;
     }
 
     public static boolean isSuffix(String word, String suffix) {
-        if(word.endsWith(suffix.replace("-", "")) == true) {
-            return true;
-        }else return false;
+        return word.endsWith(suffix.replace("-", "")) == true;
     }
 
     public static int boxSeq(int step){
@@ -180,5 +169,4 @@ public class task2 {
             return step;
         }else return step+2;
     }
-
 }
