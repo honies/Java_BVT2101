@@ -75,9 +75,7 @@ public class task1 {
     }
 
     public static boolean profitableGamble(double prob, int prize, int pay){
-        if (prob*prize>pay){
-            return true;
-        } else return false;
+        return prob * prize > pay;
     }
 
     public static String operation(int n, int a, int b){
@@ -93,13 +91,13 @@ public class task1 {
     }
 
     public static int ctoa(char asii){
-        return ((int) asii);
+        return (asii);
     }
 
     public static int addUpTo(int a){
         int sum = 0;
         for (int i = 1; i < a+1; i++){
-            sum+= i;
+            sum += i;
         }
         return sum;
     }
@@ -120,8 +118,6 @@ public class task1 {
         for (int i = 0; i < b; i++) {
             a += a;
         }
-        if (a % c == 0) {
-            return true;
-        } else return false;
+        return a % c == 0;
     }
 }
