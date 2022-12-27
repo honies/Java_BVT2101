@@ -40,9 +40,9 @@ public class task3 {
 
 
         System.out.println("------№7------");
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println(isKaprekar(3));
+        System.out.println(isKaprekar(5));
+        System.out.println(isKaprekar(297));
 
 
         System.out.println("------№8------");
@@ -61,33 +61,32 @@ public class task3 {
         System.out.println(rightTriangle(3, 4, 5));
         System.out.println(rightTriangle(145, 105, 100));
         System.out.println(rightTriangle(70, 130, 110));
-        System.out.println(same(new int[]{}, new int[]{}));
     }
 
-    public static int solutions(int a, int  b, int c){
-        if(b * b - 4 * a * c > 0){
+    public static int solutions(int a, int b, int c) {
+        if (b * b - 4 * a * c > 0) {
             return 2;
-        } else if(b * b - 4 * a * c == 0) {
+        } else if (b * b - 4 * a * c == 0) {
             return 1;
-        }else return 0;
+        } else return 0;
     }
 
     public static int findZip(String string) {
         int count = 0;
-        for(int i = 0; i < string.length(); i++) {
-            if(count == 0 && string.charAt(i) == 'z' && string.charAt(i + 1) == 'i' && string.charAt(i + 2) == 'p'){
+        for (int i = 0; i < string.length(); i++) {
+            if (count == 0 && string.charAt(i) == 'z' && string.charAt(i + 1) == 'i' && string.charAt(i + 2) == 'p') {
                 count += 1;
-            }else if(count == 1 && string.charAt(i) == 'z' && string.charAt(i + 1) == 'i' && string.charAt(i + 2) == 'p'){
+            } else if (count == 1 && string.charAt(i) == 'z' && string.charAt(i + 1) == 'i' && string.charAt(i + 2) == 'p') {
                 return i;
             }
         }
         return -1;
     }
 
-    public static boolean checkPerfect(int n){
+    public static boolean checkPerfect(int n) {
         int divSum = 0;
-        for(int i = 1; i < n; i++){
-            if(n % i == 0){
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) {
                 divSum += i;
             }
         }
@@ -95,19 +94,19 @@ public class task3 {
     }
 
     /*Логика метода isValidHexCode
-    * На вход подается hex строка и с помощью метода matches сообщает, соответствует ли строка регулярному выражению*/
-    public static boolean isValidHexCode(String hexString){
+     * На вход подается hex строка и с помощью метода matches сообщает, соответствует ли строка регулярному выражению*/
+    public static boolean isValidHexCode(String hexString) {
         return hexString.matches("^#[A-Za-z0-9]{6}");
     }
 
-    public static String flipEndChars(String string){
-        if(string.length() < 2){
+    public static String flipEndChars(String string) {
+        if (string.length() < 2) {
             return "Incompatible.";
-        }else{
+        } else {
             char[] flipString = string.toCharArray();
-            if(flipString[0] == flipString[flipString.length - 1]){
+            if (flipString[0] == flipString[flipString.length - 1]) {
                 return "Two's a pair.";
-            }else{
+            } else {
                 char firstChar = flipString[0];
                 flipString[0] = flipString[flipString.length - 1];
                 flipString[flipString.length - 1] = firstChar;
@@ -134,24 +133,35 @@ public class task3 {
         return uniqueNum2 == uniqueNum1;
     }
 
-    /*public static boolean isKaprekar(int num){
-        if(num == 0 || num == 1){
+    public static boolean isKaprekar(int n) {
+        String nq = String.valueOf(n * n);
+        if (n == 0 || n == 1)
             return true;
+        else if (nq.length() % 2 != 0) {
+            nq = "0".concat(nq);
+        }
+        String left = "";
+        String right = "";
+
+        for (int i = 0; i < nq.length() / 2; i++) {
+            left += nq.charAt(i);
+            right += nq.charAt(nq.length() / 2 + i);
         }
 
-    }*/
+        return Integer.parseInt(right) + Integer.parseInt(left) == n;
+    }
 
-    public static String longestZero(String string){
+    public static String longestZero(String string) {
         char[] list = string.toCharArray();
-        String string1 ="";
+        String string1 = "";
         String string2 = "";
-        for(int i = 0; i < list.length; i++){
-            if(list[i] == "0".charAt(0)){
+        for(int i = 0; i < list.length; i++) {
+            if(list[i] == "0".charAt(0)) {
                 string1 += "0";
-                if(string2.length() < string1.length()){
+                if (string2.length() < string1.length()) {
                     string2 = string1;
                 }
-            }else string1 ="";
+            }else string1 = "";
         }
         return string2;
     }
