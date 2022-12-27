@@ -50,14 +50,14 @@ public class task4 {
 
         System.out.println("------№9------");
         System.out.println(trouble(451999277, 477722899));
-        System.out.println();
-        System.out.println();
+        System.out.println(trouble(1222345, 1222345));
+        System.out.println(trouble(666789, 12345667));
 
 
         System.out.println("------№10------");
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println(countUniqueBooks("AZYWABBCATTTA", "A"));
+        System.out.println(countUniqueBooks("ZZABCDEF", "Z"));
+        System.out.println(countUniqueBooks("$AA$BBCATT$C$$B$", "$"));
     }
 
     public static String bessie(int n, int k, String essay) {
@@ -213,13 +213,15 @@ public class task4 {
         StringBuilder omega = new StringBuilder();
 
         for (char value : endOne) {
-            if (String.valueOf(value).matches("[aeiouy]"))
+            if (String.valueOf(value).matches("[aeiouy]")) {
                 alpha.append(value);
+            }
         }
 
         for (char c : endTwo) {
-            if (String.valueOf(c).matches("[aeiouy]"))
+            if (String.valueOf(c).matches("[aeiouy]")) {
                 omega.append(c);
+            }
         }
         return alpha.toString().equals(omega.toString());
     }
@@ -228,7 +230,7 @@ public class task4 {
     public static boolean trouble(int first, int second) {
         char[] fNum = (String.valueOf(first) + " s").toCharArray();
         char[] sNum = (String.valueOf(second) + " s").toCharArray();
-        char checkus = 'a';
+        char check = 'a';
         int cal1 = 1;
         int cal2 = 1;
 
@@ -236,7 +238,7 @@ public class task4 {
             if (fNum[i - 1] == fNum[i]) {
                 cal1 += 1;
                 if (cal1 == 3) {
-                    checkus = fNum[i];
+                    check = fNum[i];
                     cal1 = 1;
                 }
             } else
@@ -247,7 +249,7 @@ public class task4 {
         for (int i = 1; i < sNum.length; i++) {
             if (sNum[i - 1] == sNum[i]) {
                 cal2 += 1;
-                if (cal2 == 2 && sNum[i] == checkus)
+                if (cal2 == 2 && sNum[i] == check)
                     return true;
             }
         }
